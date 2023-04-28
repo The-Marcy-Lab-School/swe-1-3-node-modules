@@ -1,0 +1,72 @@
+{
+  "idToTestNameHash": {
+    "DeTe1": "Debug Tests mirrors a given value",
+    "FrScTe1": "From Scratch Tests creates index.js file",
+    "FrScTe2": "From Scratch Tests creates multiply.js file",
+    "FrScTe3": "From Scratch Tests creates greet.js file",
+    "FrScTe4": "From Scratch Tests exports a named helloWorld from index.js",
+    "FrScTe5": "From Scratch Tests returns exactly the right value from helloWorld",
+    "FrScTe6": "From Scratch Tests default exports a function from greet",
+    "FrScTe7": "From Scratch Tests properly greets people",
+    "FrScTe8": "From Scratch Tests default exports a multiply function from multiply.js",
+    "FrScTe9": "From Scratch Tests name exports a multiply function from index.js",
+    "FrScTe10": "From Scratch Tests the multiply function isn't just rewritten in index.js",
+    "FrScTe11": "From Scratch Tests properly multiplies numbers",
+    "MoTe1": "Modify Tests does not export default a function anymore",
+    "MoTe2": "Modify Tests has the right named exports",
+    "MoTe3": "Modify Tests prints the right response from liarFunction",
+    "MoTe4": "Modify Tests prints the right response from another function"
+  },
+  "testNameToIdHash": {
+    "Debug Tests mirrors a given value": "DeTe1",
+    "From Scratch Tests creates index.js file": "FrScTe1",
+    "From Scratch Tests creates multiply.js file": "FrScTe2",
+    "From Scratch Tests creates greet.js file": "FrScTe3",
+    "From Scratch Tests exports a named helloWorld from index.js": "FrScTe4",
+    "From Scratch Tests returns exactly the right value from helloWorld": "FrScTe5",
+    "From Scratch Tests default exports a multiply function from multiply.js": "FrScTe8",
+    "From Scratch Tests name exports a multiply function from index.js": "FrScTe9",
+    "From Scratch Tests The multiply function isn't just rewritten in index.js": "FrScTe8",
+    "From Scratch Tests Properly multiplies numbers": "FrScTe9",
+    "From Scratch Tests Default exports a function from greet": "FrScTe10",
+    "From Scratch Tests Properly greets people": "FrScTe11",
+    "Modify Tests does not export default a function anymore": "MoTe1",
+    "Modify Tests has the right named exports": "MoTe2",
+    "Modify Tests prints the right response from liarFunction": "MoTe3",
+    "Modify Tests prints the right response from another function": "MoTe4",
+    "From Scratch Tests the multiply function isn't just rewritten in index.js": "FrScTe10",
+    "From Scratch Tests properly multiplies numbers": "FrScTe11",
+    "From Scratch Tests default exports a function from greet": "FrScTe6",
+    "From Scratch Tests properly greets people": "FrScTe7"
+  },
+  "testScores": {
+    "Debug Tests": {
+      "DeTe1": 1
+    },
+    "From Scratch Tests": {
+      "FrScTe1": 1,
+      "FrScTe2": 1,
+      "FrScTe3": 1,
+      "FrScTe4": 1,
+      "FrScTe5": 1,
+      "FrScTe6": 1,
+      "FrScTe7": 1,
+      "FrScTe8": 1,
+      "FrScTe9": 1,
+      "FrScTe10": 1,
+      "FrScTe11": 1
+    },
+    "Modify Tests": {
+      "MoTe1": 1,
+      "MoTe2": 1,
+      "MoTe3": 1,
+      "MoTe4": 1
+    }
+  },
+  "humanReadable": {
+    "Debug Tests": "1/1",
+    "finalTestScore": "FINAL SCORE: 16/16",
+    "From Scratch Tests": "11/11",
+    "Modify Tests": "4/4"
+  }
+}
