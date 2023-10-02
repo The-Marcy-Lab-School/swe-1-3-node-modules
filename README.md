@@ -98,9 +98,9 @@ But that's not the hard part. The real challenge is: use a _**named export**_, t
 We've done a `named export` yes, but what about default exports? In `greet.js`, write a function called `greet()` that takes in a `name` argument and returns a string like:
 
 ```js
-greet('jo')
+greet('Jo')
 
-Hello, jo! How are you?
+Hello Jo, how are you?
 ```
 
 Now, use a `default export` and export the function.
