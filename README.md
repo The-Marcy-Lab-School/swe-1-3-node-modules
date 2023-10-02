@@ -45,24 +45,20 @@ git push
 ```
 
 # Submitting On Time
-You have to understand that "grades" don't exist at Marcy. We only need performance data in order to know how you're doing, and make sure the people who need help get it as quickly as they can.
-
-> To that end, always submit these standard homework assignments by midnight on the day they were assigned.
-
-It's ok if you didn't finish! Just show us what you have. There will be time later in the week to go back and finish anything you have left over. We have reviews every Thursday, and want to make sure we know what to go over.
+You have to understand that "grades" don't exist at Marcy. We only need performance data in order to know how you're doing, and make sure the people who need help get it as quickly as they can. It's ok if you didn't finish by the deadline! Just show us what you have. We'll have office hours and reviews, and we want to know what you are all struggling with so we can use those meetings effectively. **This is not about grades, its about seeing what you know, and where we can help!**
 
 # What's in an assignment?
 Some of homework will be a special case, but in general there will be 4 sections.
 
 ## From Scratch
-This is the bulk of the assignment. It's testing your ability to look at a blank page and create something.
+This is the bulk of the assignment. It's testing your ability to look at a blank page and create something. Usually, there will be a "from-scratch.js" file, but not always! Like in this assignment, you'll need to create your own files!
 
 ## Debug
 We'll be real with you: most of this job is fixing something broken. So in this part you'll be asked to try and get something working by *mostly* relying on reading tests.
 
-> This was 75% of my job, I cannot stress how important it is to get good at this.
+> This was 75% of my job, I cannot stress how important it is to get good at debugging.
 >
-> -- Mike
+> -- Mike, Director of Marcy Curriculum
 
 ## Modify
 Given some existing code, can you enhance/change it? It's similar to debug in that there's existing code, but nothing is broken.
@@ -76,14 +72,12 @@ To answer the questions, just edit each `.md` file in the `short-answers` folder
 So those are the four sections. They may not be all in the assignment, but always check the `README.md` and run your tests to make sure you've done everything.
 
 # npm start vs npm test
-Sometimes you'll want to play around and run files before testing directly. That's what `node FILENAME` or `npm start` are for. However, to make sure you got things right, use `npm test` or `npm run test:w`.
-
-For the tests, they (mostly) only care about what you export from the file. So feel free to *run* the functions in their files while you're messing around.
+Sometimes you'll want to play around and run files before testing directly. That's what `node FILENAME` or `npm start` commands are for. However, to make sure you got things right, use `npm test` or `npm run test:w`. Most of your assignments will have specific start commands for each section, but most of your labs will just use a single start command. The difference is that most _projects_ have a single start, but our assignments are a lot more fine grained than that.
 
 ## playground.js
-You can also create what's called a "playground" (or "sandbox") file where you import any code you need, and then mess around with that file. This can be helpful to keep your actual assignment code clean. We've included one (and even added a script).
+You can also create what's called a "playground" (or "sandbox") file where you import any code you need, and then mess around with that file. We've included onehere so you can see it (and even added an npm script).
 
-Alright! Let's get started!
+Alright! Let's get started with the actual assignment!
 
 # Question 1: Create our files
 First up, you may have noticed our `from-scratch` test is expecting some files to exist, so let's make them! _**In the `src` folder**_ please create the following files:
@@ -98,7 +92,7 @@ Inside `index.js` write a function called `helloWorld` that **RETURNS** the stri
 ```bash
 Hello world!
 ```
-But that's not the real challenge. Using a _**named export**_, export the `helloWorld` function.
+But that's not the hard part. The real challenge is: use a _**named export**_, to export the `helloWorld` function for our tests to read.
 
 # Question 3: Default Export `greet`
 We've done a `named export` yes, but what about default exports? In `greet.js`, write a function called `greet()` that takes in a `name` argument and returns a string like:
@@ -152,4 +146,4 @@ Please answer all the short answers. They're on today's lecture, as well as a ne
 # Bonus: Review! ...and maybe nodemon
 It's day 1, so use this time to get ahead! This week we're going to review variables, data types, functions, string manipulation, and flow control. You learned all about these in the pre work, so go over your notes. Also you can take this time to experiment with Jest's watchAll mode with the npm `test:w` script.
 
-If you *really* want something to do other than review JS, you can check out this [article on nodemon](https://www.geeksforgeeks.org/node-js-nodemon-module/). Nodemon (sounds like pokemon) automatically reruns files when they get saved. It's super handy.
+If you *really* want something to do other than review JS, you can check out this [article on nodemon](https://www.geeksforgeeks.org/node-js-nodemon-module/). Nodemon (sounds like pokemon) automatically reruns files when they get saved. It's super handy. Also, tests will form the backbone of our assignments, so watch this video about [getting started with Jest tests](https://www.youtube.com/watch?v=FgnxcUQ5vho). Note, that is all about _writing_ tests, but all you'll need to do is _read_ tests, so just focus on understanding the ideas, more than the exact syntax. 
