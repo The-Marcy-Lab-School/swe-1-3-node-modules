@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 const path = require('path');
 const ScoreCounter = require('score-tests');
-const { anotherFunction, liarFunction } = require('./modify');
+const { anotherFunction, liarFunction } = require('../src/modify');
 
 const testSuiteName = 'Modify Tests';
 const scoresDir = path.join(__dirname, '..', 'scores');
@@ -9,7 +9,7 @@ const scoreCounter = new ScoreCounter(testSuiteName, scoresDir);
 
 describe(testSuiteName, () => {
   it('does not export default a function anymore', () => {
-    const exportedModule = require('./modify');
+    const exportedModule = require('../src/modify');
     expect(typeof exportedModule).toEqual('object');
 
     scoreCounter.correct(expect); // DO NOT TOUCH
