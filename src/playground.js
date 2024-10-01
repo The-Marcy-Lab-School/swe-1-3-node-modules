@@ -1,1 +1,1 @@
-console.log('Put your playground code here!');
+console.log('Put your code here!');

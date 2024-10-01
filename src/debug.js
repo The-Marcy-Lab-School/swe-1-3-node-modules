@@ -1,4 +1,5 @@
 const mirror = (value) => {
-  console.log('value:', value);
-  return value;
+  console.log(value);
 };
+
+module.exports = mirror;

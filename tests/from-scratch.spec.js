@@ -6,29 +6,31 @@ const ScoreCounter = require('score-tests');
 const testSuiteName = 'From Scratch Tests';
 const scoresDir = path.join(__dirname, '..', 'scores');
 const scoreCounter = new ScoreCounter(testSuiteName, scoresDir);
-const relativePathToSrc = path.join(__dirname, '../src')
-const pathToIndex = path.join(relativePathToSrc, './index.js')
-const pathToMultiply = path.join(relativePathToSrc, './multiply.js')
-const pathToGreet = path.join(relativePathToSrc, './greet.js')
 
+// We're expecting some files in the src folder that
+// you need to create.
+const pathToSrc = path.join(__dirname, '../src')
+const pathToIndex = path.join(__dirname, '../src/index.js')
+const pathToMultiply = path.join(__dirname, '../src/multiply.js')
+const pathToGreet = path.join(__dirname, '../src/greet.js')
 
 describe(testSuiteName, () => {
   it('creates index.js file', () => {
-    const fileNames = fs.readdirSync(relativePathToSrc);
+    const fileNames = fs.readdirSync(pathToSrc);
     expect(fileNames.includes('index.js')).toBeTruthy();
 
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
   it('creates multiply.js file', () => {
-    const fileNames = fs.readdirSync(relativePathToSrc);
+    const fileNames = fs.readdirSync(pathToSrc);
     expect(fileNames.includes('multiply.js')).toBeTruthy();
 
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
   it('creates greet.js file', () => {
-    const fileNames = fs.readdirSync(relativePathToSrc);
+    const fileNames = fs.readdirSync(pathToSrc);
     expect(fileNames.includes('greet.js')).toBeTruthy();
 
     scoreCounter.correct(expect); // DO NOT TOUCH
