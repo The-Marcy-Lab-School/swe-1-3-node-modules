@@ -1,7 +1,6 @@
 # swe-1-1-node
 
 - [Getting started](#getting-started)
-- [Finishing](#finishing)
   - [Submitting On Time](#submitting-on-time)
 - [What's in an assignment?](#whats-in-an-assignment)
   - [From Scratch](#from-scratch)
@@ -24,56 +23,8 @@ Welcome to your fist *official* JS assignment! It may not seem exciting to you, 
 To start off, let's explain how these assignments work.
 
 ## Getting started
-Whenever you get an assignment the first thing you should do is run
 
-
-
-Upon receiving this assignment, you should do the following setup steps:
-1. Clone down your repository using the provided GitHub classroom link. It should be unique to you.
-2. `cd` into your repository.
-3. Run the following commands:
-    
-    ```sh
-    npm i
-    npm test
-    ```
-    
-    This will install any necessary dependencies and then show you all the tests you need to work on. We may explain each function in the `README.md`, but always run the tests because they are crucial to explaining what the code literally must do.
-
-4. Create and checkout a new branch called `draft`
-
-    ```sh
-    git checkout -b draft
-    ```
-
-5. Open the `.spec.js` test files in the `tests` directory. You are encouraged to look at them as they will show you exactly how we expect to be able to use your functions. **DO NOT MODIFY THE TESTS**.
-6. Start working in the `src` directory! 
-
-## Finishing
-
-To submit this assignment, do the following:
-1. Test your code, then add, commit, and push your `draft` branch to your repository. 
-
-    ```bash
-    npm test
-    git add -A
-    git commit -m "Finished up to problem 5"
-    git push
-    ```
-
-2. You may need to set an upstream branch using the command
-
-    ```sh
-    git push --set-upstream origin draft
-    ```
-
-3. Create a pull request. Make sure that you are making a pull request to merge the `draft` branch into the `main` branch and that these two branches are in your repository (don't make a pull request to merge across forks).
-4. Tag your instructor as a **Reviewer**.
-5. Your instructor will provide feedback on GitHub and will either approve your branch to be merged or will request that you resubmit.
-
-Please refer to the [Git Branching & PRs lesson](https://marcylabschool.gitbook.io/marcy-lab-school-docs/fullstack-curriculum/mod-0-command-line-interfaces-git-and-github/4-git-branching) in the Marcy Lab School Docs for guidance on creating branches and pull requests.
-
-
+For guidance on setting up and submitting this assignment, refer to the Marcy lab School Docs How-To guide for [Working with Short Response and Coding Assignments](https://marcylabschool.gitbook.io/marcy-lab-school-docs/fullstack-curriculum/how-tos/working-with-assignments#what-is-a-swe-sr-assignment).
 
 ### Submitting On Time
 You have to understand that "grades" don't exist at Marcy. We only need performance data in order to know how you're doing, and make sure the people who need help get it as quickly as they can. It's ok if you didn't finish by the deadline! Just show us what you have. We'll have office hours and reviews, and we want to know what you are all struggling with so we can use those meetings effectively. **This is not about grades, its about seeing what you know, and where we can help!**
