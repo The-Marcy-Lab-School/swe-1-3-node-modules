@@ -1,4 +1,4 @@
-# Assignment 1.0.0 - Intro To Node!
+# swe-1-1-node
 
 - [Getting started](#getting-started)
 - [Finishing](#finishing)
