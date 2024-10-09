@@ -11,8 +11,8 @@
   - [npm test](#npm-test)
 - [Questions](#questions)
   - [Question 1: Create our files](#question-1-create-our-files)
-  - [Question 2: Export a `helloWorld` function](#question-2-export-a-helloworld-function)
-  - [Question 3: Default Export `greet`](#question-3-default-export-greet)
+  - [Question 2: Default Export `greet`](#question-2-default-export-greet)
+  - [Question 3: Export a `helloWorld` function](#question-3-export-a-helloworld-function)
   - [Question 4: Import and export `multiply`](#question-4-import-and-export-multiply)
   - [Question 5: DEBUG](#question-5-debug)
   - [Question 6: MODIFY](#question-6-modify)
@@ -76,15 +76,8 @@ First up, you may have noticed our `from-scratch.spec.js` test is expecting some
 
 NOTE: This is a pretty important step! If it takes more than 20 minutes to pass the tests that check if these files exist, reach out to your teacher for help.
 
-### Question 2: Export a `helloWorld` function
-Inside `index.js` write a function called `helloWorld` that **RETURNS** the string:
-```bash
-Hello world!
-```
-But that's not the hard part. The real challenge is: use a _**named export**_, to export the `helloWorld` function for our tests to read.
-
-### Question 3: Default Export `greet`
-We've done a `named export` yes, but what about default exports? In `greet.js`, write a function called `greet()` that takes in a `name` argument and returns a string like:
+### Question 2: Default Export `greet`
+In `greet.js`, write a function called `greet()` that takes in a `name` argument and returns a string like:
 
 ```js
 greet('Jo')
@@ -92,7 +85,38 @@ greet('Jo')
 Hello Jo, how are you?
 ```
 
-Now, use a `default export` and export the function.
+Now, use a **default export** and export the function.
+
+<details><summary>Hint</summary>
+  
+A default export is just what we call it when we export one value from a file. In Node, we do this by assigning a value directly to `module.exports`
+  
+  ```js
+  module.exports = value;
+  ```
+</details>
+
+### Question 3: Export a `helloWorld` function
+Inside `index.js` write a function called `helloWorld` that **RETURNS** the string:
+```bash
+Hello world!
+```
+Now, use a _**named export**_, to export the `helloWorld` function inside of an Object for our tests to read.
+
+<details><summary>Hint</summary>
+  
+A named export is just what we call it when we export one or more values inside of an Object. In Node, we do this by assigning an Object to `module.exports`
+  
+  ```js
+  module.exports = {
+    valueA,
+    valueB,
+    valueC
+  }
+  ```
+
+It's okay to only export one thing here. We're going to add more in the next step.
+</details>
 
 ### Question 4: Import and export `multiply`
 Inside `multiply.js` write a function called `multiply()` that takes 2 `numbers` and **RETURNS** their product. Here's the tricky part:
