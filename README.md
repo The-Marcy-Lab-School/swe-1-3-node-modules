@@ -121,9 +121,9 @@ It's okay to only export one thing here. We're going to add more in the next ste
 ### Question 4: Import and export `multiply`
 Inside `multiply.js` write a function called `multiply()` that takes 2 `numbers` and **RETURNS** their product. Here's the tricky part:
 
-- Default export the `multiply()` function from `multiply.js`
-- Then `require` the `multiply()` function into your `index.js`
-- Finally, add the `multiply()` function to the named exports of `index.js`
+- Default export the `multiply` function from `multiply.js`
+- Then `require` the `multiply` function into your `index.js`
+- Finally, add the `multiply` function to the named exports of `index.js`
 
 We exported a function out of its base file, imported it into an `index` file, and then re-exported it. Why? This pattern is called a `Barrel File`. Since `index.js` is a "magic" file in node, it can help to clean up our exports by exporting everything from `index.js`.
 
