@@ -8,7 +8,7 @@
     "play": "node playground.js",
     "start": "node index.js",
     "lint": "eslint .",
-    "test": "jest --coverage",
+    "test": "jest",
     "test:w": "jest --watchAll"
   },
   "keywords": [],
