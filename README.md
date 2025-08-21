@@ -1,4 +1,4 @@
-# swe-1-1-node
+# swe-1-3-node-modules
 
 - [Getting started](#getting-started)
   - [Submitting On Time](#submitting-on-time)
