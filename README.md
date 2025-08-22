@@ -72,11 +72,20 @@ const anotherFunction = () => {
 
 ### Question 2: Madlib Challenge
 
-A program is considered **hard-coded** if the program code must be modified in order to produce a new result. Let's create an interactive Madlib program that gets user input!
-
 You'll find a folder in the `src` folder called `madlib-challenge`. It contains a single `index.js` file with two functions:
 - `madlib()` a function that accepts various inputs to generate a story.
 - `main()` - defines hard-coded values to invoke the `madlib()` function with.
+
+First, change directories to move into this folder and then run the `index.js` file to see how the program works:
+
+```sh
+cd src/madlib-challenge   # move into the madlib-challenge directory
+node index.js             # run the program
+```
+
+Try changing around the values to change the story!
+
+This program is considered **"hard-coded"** because the program code must be modified in order to produce a new result. Let's refactor this into an interactive Madlib program that gets user input instead.
 
 Your goal is to improve the program by doing the following:
 
