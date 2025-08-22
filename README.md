@@ -1,70 +1,65 @@
 # swe-1-3-node-modules
 
-- [Getting started](#getting-started)
-  - [Submitting On Time](#submitting-on-time)
-- [What's in an assignment?](#whats-in-an-assignment)
-  - [From Scratch](#from-scratch)
-  - [Debug](#debug)
-  - [Modify](#modify)
-- [Testing](#testing)
-  - [playground.js](#playgroundjs)
-  - [npm test](#npm-test)
-- [Questions](#questions)
+- [Reminders](#reminders)
+  - [Asking ChatGPT for Help](#asking-chatgpt-for-help)
+  - [Be Okay With Being "Provisionally Complete"](#be-okay-with-being-provisionally-complete)
+- [Setup](#setup)
+- [From Scratch Questions](#from-scratch-questions)
   - [Question 1: Create our files](#question-1-create-our-files)
   - [Question 2: Default Export `greet`](#question-2-default-export-greet)
   - [Question 3: Export a `helloWorld` function](#question-3-export-a-helloworld-function)
   - [Question 4: Import and export `multiply`](#question-4-import-and-export-multiply)
-  - [Question 5: DEBUG](#question-5-debug)
-  - [Question 6: MODIFY](#question-6-modify)
+- [Debug Questions](#debug-questions)
+  - [Question 5: mirror](#question-5-mirror)
+- [Modify Questions](#modify-questions)
+  - [Question 6: Default to Named Exports](#question-6-default-to-named-exports)
   - [Bonus: Review! ...and maybe nodemon](#bonus-review-and-maybe-nodemon)
 
-Welcome to your fist *official* JS assignment! It may not seem exciting to you, but we sure are pumped about it. We're going to start off simple, but you'll be amazed how quickly you'll be able to carry out complex tasks in the coming weeks.
+## Reminders
 
-To start off, let's explain how these assignments work.
+### Asking ChatGPT for Help
 
-## Getting started
+If you’re stuck, you may use ChatGPT to clarify the assignment — but not to solve it for you. To do this, copy the meta-prompt below into ChatGPT along with the assignment question.
+
+> You are acting as a tutor. Your job is to explain what this coding question is asking, clarify confusing wording, and highlight the relevant concepts students need to know — but do not provide the full solution or code that directly answers the question. Instead, focus on rephrasing the problem in simpler terms, identifying what’s being tested, and suggesting what steps or thought processes might help. Ask guiding questions to ensure the student is thinking critically. Do not write the final function, algorithm, or code implementation.
+
+Be mindful of your AI usage on assignments. AI can be a great tool to help your learning but it can also be detrimental if you let it do too much of the thinking for you.
+
+### Be Okay With Being "Provisionally Complete"
+
+At Marcy, we will deem an assignment as "complete" if the solution passes at least **75%** of the automated tests. 
+
+However, we know many of you will feel the urge to hold off on submitting until your assignment feels 100% perfect. That drive for excellence is an asset!
+
+But perfectionism can also get in the way of learning — especially when we need to cover a lot in a short amount of time.
+
+That’s why we encourage you to be comfortable with being **“provisionally complete.”** This means:
+
+- Submitting your work even if it isn’t perfect yet
+- Treating submission as a checkpoint, not a finish line
+- Committing to return, revise, and improve later
+
+Learning to move forward with provisional completeness will help you make steady progress while still building the habit of continuous improvement.
+
+## Setup
 
 For guidance on setting up and submitting this assignment, refer to the Marcy lab School Docs How-To guide for [Working with Short Response and Coding Assignments](https://marcylabschool.gitbook.io/marcy-lab-school-docs/fullstack-curriculum/how-tos/working-with-assignments#how-to-work-on-assignments).
 
-### Submitting On Time
-You have to understand that "grades" don't exist at Marcy. We only need performance data in order to know how you're doing, and make sure the people who need help get it as quickly as they can. It's ok if you didn't finish by the deadline! Just show us what you have. We'll have office hours and reviews, and we want to know what you are all struggling with so we can use those meetings effectively. **This is not about grades, its about seeing what you know, and where we can help!**
-
-## What's in an assignment?
-Some of homework will be a special case, but in general there will be 3 sections.
-
-### From Scratch
-This is the bulk of the assignment. It's testing your ability to look at a blank page and create something. Usually, there will be a "from-scratch.js" file, but not always! Like in this assignment, you'll need to create your own files!
-
-### Debug
-We'll be real with you: most of this job is fixing something broken. So in this part you'll be asked to try and get something working by *mostly* relying on reading tests.
-
-### Modify
-Given some existing code, can you enhance/change it? It's similar to debug in that there's existing code, but nothing is broken.
-
-So those are the sections. They may not be all in the assignment, but always check the `README.md` and run your tests to make sure you've done everything.
-
-## Testing 
-
-The most straightforward way to test your code is to test your code by hand as you work. Invoke your functions and use `console.log()` to print out the results. Then, `cd` into the `src/` directory and use the `node <file_name>` command to run your JavaScript files. 
-
-### playground.js
-
-You can also create what's called a "playground" (or "sandbox") file where you import any code you need, and then mess around with that file. We've included one in the `src` directory so you can see it. Run that program using `node playground.js`.
-
-### npm test
-
-Before submitting your code, make sure you got things right by running the provided automated tests.
-
-You can do this using the commands:
+Here are some useful commands to remember.
 
 ```sh
+npm i                   # install dependencies
+git checkout -b draft   # switch to the draft branch before starting
+
 npm test # run the automated tests
 npm run test:w # run the automated tests and rerun them each time you save a change
+
+git add -A              # add a changed file to the staging area
+git commit -m 'message' # create a commit with the changes
+git push                # push the new commit to the remote repo
 ```
 
-You will know that you have "completed" an assignment once you have passed 75% or more of the automated tests!
-
-## Questions
+## From Scratch Questions
 
 Alright! Let's get started with the actual assignment!
 
@@ -143,14 +138,25 @@ const { thing1, thing2, thing3, thing4 } = require('./things');
 
 This way, we get to write small, focused, well named files, and we only have to write all those `require`s once in an index. Barrel files aren't great for most simple things like these assignments, but they're a good trick to know for more complex projects.
 
-### Question 5: DEBUG
+## Debug Questions
+
+### Question 5: mirror
 In `debug.js` We have a function called `mirror()` that's supposed to log and return whatever we pass into it. But the test is failing. What's wrong our code? Check out the tests in `debug.spec.js` and see if you can figure out what we're missing in `debug.js`.
 
-### Question 6: MODIFY
-So we wrote a default export (not even using a named function) in `modify.js`. We did this because we *thought* it would only export one function. But now we've added `anotherFunction()`. So we have two things to do:
+## Modify Questions
 
-- rename the anonymous default export function as `liarFunction()`
-- Export both `anotherFunction()` and `liarFunction()` as named exports.
+### Question 6: Default to Named Exports
+So we wrote a default export in `modify.js`. We did this because we *thought* it would only export the `onlyOne` function. But now we want to add another function to also export! So we have two things to do:
+
+1. First, copy this function into the `modify.js` file
+
+```js
+const anotherFunction = () => {
+  return "No, you don't.";
+};
+```
+
+2. Export both `anotherFunction()` and `onlyOne()` as named exports.
 -------------------------------------------------
 
 ### Bonus: Review! ...and maybe nodemon

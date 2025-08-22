@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 const path = require('path');
 const ScoreCounter = require('score-tests');
-const { anotherFunction, liarFunction } = require('../src/modify');
+const { anotherFunction, onlyOne } = require('../src/modify');
 
 const testSuiteName = 'Modify Tests';
 const scoresDir = path.join(__dirname, '..', 'scores');
@@ -17,13 +17,13 @@ describe(testSuiteName, () => {
 
   it('has the right named exports', () => {
     expect(typeof anotherFunction).toEqual('function');
-    expect(typeof liarFunction).toEqual('function');
+    expect(typeof onlyOne).toEqual('function');
 
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
 
-  it('prints the right response from liarFunction', () => {
-    expect(liarFunction()).toEqual('I stand alone.');
+  it('prints the right response from onlyOne', () => {
+    expect(onlyOne()).toEqual('I stand alone.');
 
     scoreCounter.correct(expect); // DO NOT TOUCH
   });
