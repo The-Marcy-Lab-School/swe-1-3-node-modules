@@ -4,16 +4,10 @@
   - [Asking ChatGPT for Help](#asking-chatgpt-for-help)
   - [Be Okay With Being "Provisionally Complete"](#be-okay-with-being-provisionally-complete)
 - [Setup](#setup)
-- [From Scratch Questions](#from-scratch-questions)
-  - [Question 1: Create our files](#question-1-create-our-files)
-  - [Question 2: Default Export `greet`](#question-2-default-export-greet)
-  - [Question 3: Export a `helloWorld` function](#question-3-export-a-helloworld-function)
-  - [Question 4: Import and export `multiply`](#question-4-import-and-export-multiply)
-- [Debug Questions](#debug-questions)
-  - [Question 5: mirror](#question-5-mirror)
 - [Modify Questions](#modify-questions)
-  - [Question 6: Default to Named Exports](#question-6-default-to-named-exports)
-  - [Bonus: Review! ...and maybe nodemon](#bonus-review-and-maybe-nodemon)
+  - [Question 1: Default to Named Exports](#question-1-default-to-named-exports)
+- [Program Challenge](#program-challenge)
+  - [Question 2: Madlib Challenge](#question-2-madlib-challenge)
 
 ## Reminders
 
@@ -59,93 +53,9 @@ git commit -m 'message' # create a commit with the changes
 git push                # push the new commit to the remote repo
 ```
 
-## From Scratch Questions
-
-Alright! Let's get started with the actual assignment!
-
-### Question 1: Create our files
-First up, you may have noticed our `from-scratch.spec.js` test is expecting some files to exist, so let's make them! _**In the `src` folder**_ please create the following files:
-  - `index.js`
-  - `multiply.js`
-  - `greet.js`
-
-NOTE: This is a pretty important step! If it takes more than 20 minutes to pass the tests that check if these files exist, reach out to your teacher for help.
-
-### Question 2: Default Export `greet`
-In `greet.js`, write a function called `greet()` that takes in a `name` argument and returns a string like:
-
-```js
-greet('Jo')
-
-Hello Jo, how are you?
-```
-
-Now, use a **default export** and export the function.
-
-<details><summary>Hint</summary>
-  
-A default export is just what we call it when we export one value from a file. In Node, we do this by assigning a value directly to `module.exports`
-  
-  ```js
-  module.exports = value;
-  ```
-</details>
-
-### Question 3: Export a `helloWorld` function
-Inside `index.js` write a function called `helloWorld` that **RETURNS** the string:
-```bash
-Hello world!
-```
-Now, use a _**named export**_, to export the `helloWorld` function inside of an Object for our tests to read.
-
-<details><summary>Hint</summary>
-  
-A named export is just what we call it when we export one or more values inside of an Object. In Node, we do this by assigning an Object to `module.exports`
-  
-  ```js
-  module.exports = {
-    valueA,
-    valueB,
-    valueC
-  }
-  ```
-
-It's okay to only export one thing here. We're going to add more in the next step.
-</details>
-
-### Question 4: Import and export `multiply`
-Inside `multiply.js` write a function called `multiply()` that takes 2 `numbers` and **RETURNS** their product. Here's the tricky part:
-
-- Default export the `multiply` function from `multiply.js`
-- Then `require` the `multiply` function into your `index.js`
-- Finally, add the `multiply` function to the named exports of `index.js`
-
-We exported a function out of its base file, imported it into an `index` file, and then re-exported it. Why? This pattern is called a `Barrel File`. Since `index.js` is a "magic" file in node, it can help to clean up our exports by exporting everything from `index.js`.
-
-See, if you just require a *folder* instead of a file, node will *automatically* check if theres an `index.js` file in the root of that folder, and then import from `index.js`. Look how much this feature helps us:
-
-```js
-// Doing this in a bunch of files:
-const thing1 = require('./things/thing1');
-const thing2 = require('./things/thing2');
-const thing3 = require('./things/thing3');
-const thing4 = require('./things/thing4');
-
-// Is a lot more annoying than this
-const { thing1, thing2, thing3, thing4 } = require('./things');
-// Those are all exported from /things/index.js
-```
-
-This way, we get to write small, focused, well named files, and we only have to write all those `require`s once in an index. Barrel files aren't great for most simple things like these assignments, but they're a good trick to know for more complex projects.
-
-## Debug Questions
-
-### Question 5: mirror
-In `debug.js` We have a function called `mirror()` that's supposed to log and return whatever we pass into it. But the test is failing. What's wrong our code? Check out the tests in `debug.spec.js` and see if you can figure out what we're missing in `debug.js`.
-
 ## Modify Questions
 
-### Question 6: Default to Named Exports
+### Question 1: Default to Named Exports
 So we wrote a default export in `modify.js`. We did this because we *thought* it would only export the `onlyOne` function. But now we want to add another function to also export! So we have two things to do:
 
 1. First, copy this function into the `modify.js` file
@@ -157,9 +67,43 @@ const anotherFunction = () => {
 ```
 
 2. Export both `anotherFunction()` and `onlyOne()` as named exports.
--------------------------------------------------
 
-### Bonus: Review! ...and maybe nodemon
-It's day 1, so use this time to get ahead! This week we're going to review variables, data types, functions, string manipulation, and flow control. You learned all about these in the pre work, so go over your notes. Also you can take this time to experiment with Jest's watchAll mode with the npm `test:w` script.
+## Program Challenge
 
-If you *really* want something to do other than review JS, you can check out this [article on nodemon](https://www.geeksforgeeks.org/node-js-nodemon-module/). Nodemon (sounds like pokemon) automatically reruns files when they get saved. It's super handy. Also, tests will form the backbone of our assignments, so watch this video about [getting started with Jest tests](https://www.youtube.com/watch?v=FgnxcUQ5vho). Note, that is all about _writing_ tests, but all you'll need to do is _read_ tests, so just focus on understanding the ideas, more than the exact syntax. 
+### Question 2: Madlib Challenge
+
+A program is considered **hard-coded** if the program code must be modified in order to produce a new result. Let's create an interactive Madlib program that gets user input!
+
+You'll find a folder in the `src` folder called `madlib-challenge`. It contains a single `index.js` file with two functions:
+- `madlib()` a function that accepts various inputs to generate a story.
+- `main()` - defines hard-coded values to invoke the `madlib()` function with.
+
+Your goal is to improve the program by doing the following:
+
+1. **First, improve the separation of concerns by using modules:**
+   * Create a new file in the `madlib-challenge` directory called `madlib.js`.
+   * Move the `madlib` function from `index.js` into your new `madlib.js`
+   * Export the `madlib` function from `madlib.js` as a default export.
+   * Import `madlib` into your `index.js` file so that it can be used.
+
+2. **Then, make the program more dynamic allowing the user to change the story each time they run the program:**
+    * Initialize the `package.json` file using `npm init -y`
+    * Install the `prompt-sync` module from `npm` using your terminal
+    * Update `index.js` to import and configure the `prompt` function from `prompt-sync`
+    
+      ```js
+      const prompt = require('prompt-sync')()
+      ```
+
+    * Replace the hard-coded values for `profession`, `name`, `verb`, `pet`, `storyContinues` with calls to `prompt()` 
+
+        ```js
+        const profession = prompt('Choose a profession: ');
+        const name = prompt('Choose a name: ');
+        const verb = prompt('Choose a verb: ');
+        const pet = prompt('Choose a pet: ');
+        
+        // We have to do some input validation for this one to make sure it is a boolean
+        const storyContinuesResponse = prompt('Choose whether the story continues. Y or N: ');
+        const storyContinues = storyContinuesResponse.toUpperCase() === "Y";
+        ```

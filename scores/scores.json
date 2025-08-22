@@ -1,63 +1,13 @@
 {
-  "idToTestNameHash": {
-    "DeTe1": "Debug Tests mirrors a given value",
-    "FrScTe1": "From Scratch Tests creates index.js file",
-    "FrScTe2": "From Scratch Tests creates multiply.js file",
-    "FrScTe3": "From Scratch Tests creates greet.js file",
-    "FrScTe4": "From Scratch Tests exports a named helloWorld from index.js",
-    "FrScTe5": "From Scratch Tests returns exactly the right value from helloWorld",
-    "FrScTe6": "From Scratch Tests exports a default export called greet from greet.js",
-    "FrScTe7": "From Scratch Tests properly greets people",
-    "FrScTe8": "From Scratch Tests exports a default export called multiply from multiply.js",
-    "FrScTe9": "From Scratch Tests name exports a multiply function from index.js",
-    "FrScTe10": "From Scratch Tests the multiply function isn't just rewritten in index.js",
-    "FrScTe11": "From Scratch Tests properly multiplies numbers",
-    "MoTe1": "Modify Tests does not export default a function anymore",
-    "MoTe2": "Modify Tests has the right named exports",
-    "MoTe3": "Modify Tests prints the right response from onlyOne",
-    "MoTe4": "Modify Tests prints the right response from another function"
-  },
-  "testNameToIdHash": {
-    "Debug Tests mirrors a given value": "DeTe1",
-    "From Scratch Tests creates index.js file": "FrScTe1",
-    "From Scratch Tests creates multiply.js file": "FrScTe2",
-    "From Scratch Tests creates greet.js file": "FrScTe3",
-    "From Scratch Tests exports a named helloWorld from index.js": "FrScTe4",
-    "From Scratch Tests returns exactly the right value from helloWorld": "FrScTe5",
-    "From Scratch Tests default exports a multiply function from multiply.js": "FrScTe8",
-    "From Scratch Tests name exports a multiply function from index.js": "FrScTe9",
-    "From Scratch Tests The multiply function isn't just rewritten in index.js": "FrScTe8",
-    "From Scratch Tests Properly multiplies numbers": "FrScTe9",
-    "From Scratch Tests Default exports a function from greet": "FrScTe10",
-    "From Scratch Tests Properly greets people": "FrScTe11",
-    "Modify Tests does not export default a function anymore": "MoTe1",
-    "Modify Tests has the right named exports": "MoTe2",
-    "Modify Tests prints the right response from liarFunction": "MoTe3",
-    "Modify Tests prints the right response from another function": "MoTe4",
-    "From Scratch Tests the multiply function isn't just rewritten in index.js": "FrScTe10",
-    "From Scratch Tests properly multiplies numbers": "FrScTe11",
-    "From Scratch Tests default exports a function from greet": "FrScTe6",
-    "From Scratch Tests properly greets people": "FrScTe7",
-    "From Scratch Tests exports a default export called greet from greet.js": "FrScTe6",
-    "From Scratch Tests exports a default export called multiply from multiply.js": "FrScTe8",
-    "Modify Tests prints the right response from onlyOne": "MoTe3"
-  },
   "testScores": {
-    "Debug Tests": {
-      "DeTe1": 0
-    },
-    "From Scratch Tests": {
-      "FrScTe1": 0,
-      "FrScTe2": 0,
-      "FrScTe3": 0,
-      "FrScTe4": 0,
-      "FrScTe5": 0,
-      "FrScTe6": 0,
-      "FrScTe7": 0,
-      "FrScTe8": 0,
-      "FrScTe9": 0,
-      "FrScTe10": 0,
-      "FrScTe11": 0
+    "Madlib Challenge Tests": {
+      "MaChTe1": 0,
+      "MaChTe2": 0,
+      "MaChTe3": 0,
+      "MaChTe4": 0,
+      "MaChTe5": 0,
+      "MaChTe6": 0,
+      "MaChTe7": 0
     },
     "Modify Tests": {
       "MoTe1": 0,
@@ -66,10 +16,35 @@
       "MoTe4": 0
     }
   },
+  "idToTestNameHash": {
+    "MaChTe1": "Madlib Challenge Tests 1. creates a new file called madlib.js",
+    "MaChTe2": "Madlib Challenge Tests 2. madlib.js exports the madlib function as a default export",
+    "MaChTe3": "Madlib Challenge Tests 3. index.js imports madlib and everything still works",
+    "MaChTe4": "Madlib Challenge Tests 4. initializes a package.json file with npm init",
+    "MaChTe5": "Madlib Challenge Tests 5. installs prompt-sync as a dependency",
+    "MaChTe6": "Madlib Challenge Tests 6. imports and initializes the prompt function",
+    "MaChTe7": "Madlib Challenge Tests 7. updates hard-coded values with prompts (5 prompt calls)",
+    "MoTe1": "Modify Tests does not export default a function anymore",
+    "MoTe2": "Modify Tests has the right named exports",
+    "MoTe3": "Modify Tests prints the right response from onlyOne",
+    "MoTe4": "Modify Tests prints the right response from another function"
+  },
+  "testNameToIdHash": {
+    "Madlib Challenge Tests 1. creates a new file called madlib.js": "MaChTe1",
+    "Madlib Challenge Tests 2. madlib.js exports the madlib function as a default export": "MaChTe2",
+    "Madlib Challenge Tests 3. index.js imports madlib and everything still works": "MaChTe3",
+    "Madlib Challenge Tests 4. initializes a package.json file with npm init": "MaChTe4",
+    "Madlib Challenge Tests 5. installs prompt-sync as a dependency": "MaChTe5",
+    "Madlib Challenge Tests 6. imports and initializes the prompt function": "MaChTe6",
+    "Madlib Challenge Tests 7. updates hard-coded values with prompts (5 prompt calls)": "MaChTe7",
+    "Modify Tests does not export default a function anymore": "MoTe1",
+    "Modify Tests has the right named exports": "MoTe2",
+    "Modify Tests prints the right response from onlyOne": "MoTe3",
+    "Modify Tests prints the right response from another function": "MoTe4"
+  },
   "humanReadable": {
-    "Debug Tests": "0/1",
-    "finalTestScore": "FINAL SCORE: 0/16",
-    "From Scratch Tests": "0/11",
+    "Madlib Challenge Tests": "0/7",
+    "finalTestScore": "FINAL SCORE: 0/11",
     "Modify Tests": "0/4"
   }
 }
