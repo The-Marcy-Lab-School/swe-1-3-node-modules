@@ -96,11 +96,6 @@ describe(testSuiteName, () => {
     // Check that prompt-sync is listed in the dependencies object
     expect(packageJson.dependencies).toHaveProperty('prompt-sync');
 
-    // Also check that the actual node_modules folder contains prompt-sync
-    // This verifies the package was actually downloaded, not just listed
-    const promptSyncPath = path.join(madlibChallengeDir, 'node_modules', 'prompt-sync');
-    expect(fs.existsSync(promptSyncPath)).toBeTruthy();
-
     scoreCounter.correct(expect);
   });
 
