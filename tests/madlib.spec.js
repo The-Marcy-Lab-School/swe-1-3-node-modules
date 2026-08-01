@@ -1,11 +1,8 @@
 /* eslint-disable import/no-dynamic-require */
 const path = require('path');
 const fs = require('fs');
-const ScoreCounter = require('score-tests');
 
 const testSuiteName = 'Madlib Challenge Tests';
-const scoresDir = path.join(__dirname, '..', 'scores');
-const scoreCounter = new ScoreCounter(testSuiteName, scoresDir);
 
 describe(testSuiteName, () => {
   // Define the file paths we'll be testing
@@ -19,8 +16,6 @@ describe(testSuiteName, () => {
   it('1. creates a new file called madlib.js', () => {
     // Did you create the madlib.js file?
     expect(fs.existsSync(madlibPath)).toBeTruthy();
-
-    scoreCounter.correct(expect);
   });
 
   // Test 2: Check if madlib.js properly exports the function
@@ -41,8 +36,6 @@ describe(testSuiteName, () => {
     expect(() => {
       madlib('Doctor', 'Alice', 'dance', 'cat', true);
     }).not.toThrow();
-
-    scoreCounter.correct(expect);
   });
 
   // Test 3: Check if index.js imports madlib and everything works together
@@ -60,8 +53,6 @@ describe(testSuiteName, () => {
 
     // Check that the madlib function is called in the main function
     expect(indexContent).toContain('madlib(profession, name, verb, pet, storyContinues)');
-
-    scoreCounter.correct(expect);
   });
 
   // Test 4: Check if package.json was created with npm init
@@ -79,8 +70,6 @@ describe(testSuiteName, () => {
     expect(packageJson).toHaveProperty('version');
     expect(packageJson).toHaveProperty('description');
     expect(packageJson).toHaveProperty('main');
-
-    scoreCounter.correct(expect);
   });
 
   // Test 5: Check if prompt-sync was installed as a dependency
@@ -100,8 +89,6 @@ describe(testSuiteName, () => {
     // This verifies the package was actually downloaded, not just listed
     const promptSyncPath = path.join(madlibChallengeDir, 'node_modules', 'prompt-sync');
     expect(fs.existsSync(promptSyncPath)).toBeTruthy();
-
-    scoreCounter.correct(expect);
   });
 
   // Test 6: Check if prompt-sync is properly imported and initialized
@@ -115,8 +102,6 @@ describe(testSuiteName, () => {
     const hasPromptSyncInit = indexContent.match(/require\(['"]prompt-sync['"]\)\(\)/);
     expect(hasPromptSync).toBeTruthy();
     expect(hasPromptSyncInit).toBeTruthy();
-
-    scoreCounter.correct(expect);
   });
 
   // Test 7: Check if hardcoded values were replaced with prompt() calls
@@ -131,11 +116,5 @@ describe(testSuiteName, () => {
 
     // Check that there are at least 5 prompt() calls (one for each input)
     expect(promptCalls).toBeGreaterThanOrEqual(5);
-
-    scoreCounter.correct(expect);
   });
-
-  // IGNORE PLEASE
-  beforeEach(() => scoreCounter.add(expect));
-  afterAll(scoreCounter.export);
 });
