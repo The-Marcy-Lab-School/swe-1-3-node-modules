@@ -85,10 +85,12 @@ describe(testSuiteName, () => {
     // Check that prompt-sync is listed in the dependencies object
     expect(packageJson.dependencies).toHaveProperty('prompt-sync');
 
-    // Also check that the actual node_modules folder contains prompt-sync
-    // This verifies the package was actually downloaded, not just listed
-    const promptSyncPath = path.join(madlibChallengeDir, 'node_modules', 'prompt-sync');
-    expect(fs.existsSync(promptSyncPath)).toBeTruthy();
+    // Note: this deliberately does NOT check that node_modules/prompt-sync exists
+    // on disk. node_modules/ is gitignored, so it is absent from any clone or
+    // checkout of your repository — that check could only ever pass on the machine
+    // where you ran `npm install`, and would fail for everyone else. Listing the
+    // dependency is what makes the install reproducible, and test 6 checks that
+    // you actually import and use it.
   });
 
   // Test 6: Check if prompt-sync is properly imported and initialized
