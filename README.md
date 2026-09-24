@@ -1,118 +1,227 @@
-# swe-1-3-node-modules
+# Modules
 
-- [Reminders](#reminders)
-  - [Asking ChatGPT for Help](#asking-chatgpt-for-help)
-  - [Be Okay With Being "Provisionally Complete"](#be-okay-with-being-provisionally-complete)
+Split code across files, control what runs on import, and turn a hard-coded
+program into an interactive one.
+
+**Practicing:** modules, `import`, the `__main__` guard, `input()`
+
+- [AI Use on This Assignment](#ai-use-on-this-assignment)
 - [Setup](#setup)
-- [Modify Questions](#modify-questions)
-  - [Question 1: Default to Named Exports](#question-1-default-to-named-exports)
+- [Before You Start](#before-you-start)
+- [Modify](#modify)
+  - [Question 1: Stop the print from running on import](#question-1-stop-the-print-from-running-on-import)
 - [Program Challenge](#program-challenge)
   - [Question 2: Madlib Challenge](#question-2-madlib-challenge)
+- [Resources](#resources)
+- [Submitting](#submitting)
+- [Good luck!](#good-luck)
 
-## Reminders
+## AI Use on This Assignment
 
-### Asking ChatGPT for Help
+Use whichever mode matches where you are with this material. Both are fine,
+and most people move between them as a concept clicks.
 
-If you’re stuck, you may use ChatGPT to clarify the assignment — but not to solve it for you. To do this, copy the meta-prompt below into ChatGPT along with the assignment question.
+**Tutor mode.** The AI explains, questions, quizzes, and critiques, and you
+write every line you submit. For this assignment that means asking it what
+actually happens when Python imports a file, or having it quiz you on the
+difference between running a file and importing it. Ask it a hundred questions
+— that is the whole point. What you do not do is ask it for the code. Paste
+this at the start of a chat and it will hold for the rest of the conversation:
 
-> You are acting as a tutor. Your job is to explain what this coding question is asking, clarify confusing wording, and highlight the relevant concepts students need to know — but do not provide the full solution or code that directly answers the question. Instead, focus on rephrasing the problem in simpler terms, identifying what’s being tested, and suggesting what steps or thought processes might help. Ask guiding questions to ensure the student is thinking critically. Do not write the final function, algorithm, or code implementation.
+> You are acting as a tutor. Your job is to explain what this coding question
+> is asking, clarify confusing wording, and highlight the relevant concepts I
+> need to know — but do not provide the full solution or code that directly
+> answers the question. Instead, rephrase the problem in simpler terms,
+> identify what is being tested, and suggest what steps or thought processes
+> might help. Ask me guiding questions to make sure I am thinking critically.
+> Do not write the final function, algorithm, or code implementation.
 
-Be mindful of your AI usage on assignments. AI can be a great tool to help your learning but it can also be detrimental if you let it do too much of the thinking for you.
+**Implementer mode.** You write a specification first, the AI writes code from
+it, and then you verify that code line by line. For this assignment your spec
+has to say which file each function lives in, what gets imported where, and
+what should happen when someone imports your file instead of running it. If
+what comes back does more than you asked for, reject it — over-delivery is a
+defect, and catching it is part of the job.
 
-### Be Okay With Being "Provisionally Complete"
-
-At Marcy, we will deem an assignment as "complete" if the solution passes at least **75%** of the automated tests. 
-
-However, we know many of you will feel the urge to hold off on submitting until your assignment feels 100% perfect. That drive for excellence is an asset!
-
-But perfectionism can also get in the way of learning — especially when we need to cover a lot in a short amount of time.
-
-That’s why we encourage you to be comfortable with being **“provisionally complete.”** This means:
-
-- Submitting your work even if it isn’t perfect yet
-- Treating submission as a checkpoint, not a finish line
-- Committing to return, revise, and improve later
-
-Learning to move forward with provisional completeness will help you make steady progress while still building the habit of continuous improvement.
+You own every line either way, and you will be asked to explain it.
 
 ## Setup
 
-For guidance on setting up and submitting this assignment, refer to the Marcy lab School Docs How-To guide for [Working with Short Response and Coding Assignments](https://marcylabschool.gitbook.io/marcy-lab-school-docs/how-tos/working-with-assignments#how-to-work-on-assignments).
-
-Here are some useful commands to remember.
+Work in `development/mod-1`. Make a draft branch before you start.
 
 ```sh
-npm i                   # install dependencies
-git checkout -b draft   # switch to the draft branch before starting
-
-npm test # run the automated tests
-npm run test:w # run the automated tests and rerun them each time you save a change
-
-git add -A              # add a changed file to the staging area
-git commit -m 'message' # create a commit with the changes
-git push                # push the new commit to the remote repo
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+git checkout -b draft
 ```
 
-## Modify Questions
+Run `pytest` for everything, or `pytest -k madlib` for one section. Scores land
+in `scores/scores.json`.
 
-### Question 1: Default to Named Exports
-So we wrote a default export in `modify.js`. We did this because we *thought* it would only export the `onlyOne` function. But now we want to add another function to also export! So we have two things to do:
+You can also try things out by hand in `src/playground.py` and run it with
+`python3 src/playground.py`. Nothing in there is graded, so print whatever you
+like.
 
-1. First, copy this function into the `modify.js` file
+75% of tests passing counts as complete. Submit at that point even if it is not
+perfect. Treat submitting as a checkpoint rather than a finish line, and come
+back to improve it.
 
-```js
-const anotherFunction = () => {
-  return "No, you don't.";
-};
+## Before You Start
+
+Every `.py` file is a **module**: a file of Python code that another file can
+import. Splitting a program into modules is how you keep each file small enough
+to hold in your head.
+
+Here is the thing that surprises everyone the first time. When you import a
+module, Python *runs the whole file top to bottom*. Not just the definitions —
+every line.
+
+```python
+def greet():
+    return "hi"
+
+print("this runs on import!")
 ```
 
-2. Export both `anotherFunction()` and `onlyOne()` as named exports.
+Import that file and you get `this runs on import!` printed at you, whether you
+wanted it or not. That is why Python has a guard:
+
+```python
+if __name__ == "__main__":
+    print("this only runs when I run this file directly")
+```
+
+`__name__` is a variable Python sets for you. It is `"__main__"` when you run
+the file yourself with `python3 file.py`, and it is the module's name when
+somebody imports it. So that `if` is really asking: *am I the file being run,
+or am I being imported?*
+
+Put your definitions at the top level, and put the code that *does* something
+inside the guard. Both questions below are a version of that idea.
+
+## Modify
+
+### Question 1: Stop the print from running on import
+
+Open `src/modify.py`. It defines `only_one()` and then prints its result at the
+top level, so that print fires the moment anybody imports the file. We want the
+file to be usable as a module *and* still work when you run it directly.
+
+Two things to do.
+
+1. Add a second function called `another_function` that takes no parameters and
+   returns the string `"No, you don't."`
+
+2. Move the existing `print(only_one())` call inside an
+   `if __name__ == "__main__":` guard.
+
+Do not delete the print. After you are done, both of these should be true:
+
+```sh
+python3 src/modify.py
+```
+
+```text
+I stand alone.
+```
+
+```sh
+python3 -c "import sys; sys.path.insert(0, 'src'); import modify"
+```
+
+```text
+
+```
+
+That second one prints nothing at all. Importing a module should be quiet.
 
 ## Program Challenge
 
 ### Question 2: Madlib Challenge
 
-You'll find a folder in the `src` folder called `madlib-challenge`. It contains a single `index.js` file with two functions:
-- `madlib()` a function that accepts various inputs to generate a story.
-- `main()` - defines hard-coded values to invoke the `madlib()` function with.
+In `src/madlib_challenge` there is a single `main.py` file with two functions:
 
-First, change directories to move into this folder and then run the `index.js` file to see how the program works:
+- `madlib()` takes various inputs and prints a story.
+- `main()` defines hard-coded values and calls `madlib()` with them.
+
+Move into that folder and run the program to see how it works:
 
 ```sh
-cd src/madlib-challenge   # move into the madlib-challenge directory
-node index.js             # run the program
+cd src/madlib_challenge
+python3 main.py
 ```
 
-Try changing around the values to change the story!
+Try changing the values to change the story!
 
-This program is considered **"hard-coded"** because the program code must be modified in order to produce a new result. Let's refactor this into an interactive Madlib program that gets user input instead.
+This program is **hard-coded**: the values are written directly into the
+source. To get a different result you have to edit the program itself. Let's
+refactor it into an interactive madlib that asks the user instead.
 
-Your goal is to improve the program by doing the following:
+**First, improve the separation of concerns by using modules.** Separation of
+concerns means each file has one job: `madlib.py` will know how to tell a
+story, and `main.py` will know how to gather input.
 
-1. **First, improve the separation of concerns by using modules:**
-   * Create a new file in the `madlib-challenge` directory called `madlib.js`.
-   * Move the `madlib` function from `index.js` into your new `madlib.js`
-   * Export the `madlib` function from `madlib.js` as a default export.
-   * Import `madlib` into your `index.js` file so that it can be used.
+- Create a new file in the `madlib_challenge` directory called `madlib.py`
+- Move the entire `madlib` function out of `main.py` and into `madlib.py`
+- At the top of `main.py`, import it by name with `from madlib import madlib`
 
-2. **Then, make the program more dynamic allowing the user to change the story each time they run the program:**
-    * Initialize the `package.json` file using `npm init -y`
-    * Install the `prompt-sync` module from `npm` using your terminal
-    * Update `index.js` to import and configure the `prompt` function from `prompt-sync`
-    
-      ```js
-      const prompt = require('prompt-sync')()
-      ```
+That import names exactly what it brings in. You may have seen
+`from madlib import *`, which pulls in everything the module defines. Avoid it.
+Picture yourself six months from now, staring at a `madlib(...)` call and
+wondering where that name came from. The explicit import answers that.
 
-    * Replace the hard-coded values for `profession`, `name`, `verb`, `pet`, `storyContinues` with calls to `prompt()` 
+**Second, guard the entry point.** `main()` is currently called at the top
+level of `main.py`, so importing that file would start asking a person
+questions. Move the call inside an `if __name__ == "__main__":` guard, exactly
+like you did in question 1.
 
-        ```js
-        const profession = prompt('Choose a profession: ');
-        const name = prompt('Choose a name: ');
-        const verb = prompt('Choose a verb: ');
-        const pet = prompt('Choose a pet: ');
-        
-        // We have to do some input validation for this one to make sure it is a boolean
-        const storyContinuesResponse = prompt('Choose whether the story continues. Y or N: ');
-        const storyContinues = storyContinuesResponse.toUpperCase() === "Y";
-        ```
+**Third, make the program dynamic** so the user can change the story every time
+they run it. Python has a built-in function for this, so there is nothing to
+install:
+
+```python
+answer = input("Choose a profession: ")
+```
+
+`input()` prints the prompt you give it, waits for the person to type something
+and press enter, then returns what they typed **as a string**. Always.
+
+Replace the hard-coded values for `profession`, `name`, `verb`, and `pet` with
+`input()` calls. That is four. The fifth is `story_continues`, and it needs a
+little more care. `madlib()` expects `True` or `False`, but `input()` only ever
+hands you a string:
+
+```python
+answer = input("Should the story continue? Y or N: ")
+story_continues = answer.upper() == "Y"
+```
+
+Read that second line carefully. What is on the right of the `=`, and what type
+is it? Hmmmm.
+
+When you are done, `python3 main.py` should ask you five questions and then tell
+you a story you wrote.
+
+## Resources
+
+- [W3Schools: Python Modules](https://www.w3schools.com/python/python_modules.asp)
+  — short, with examples
+- [W3Schools: Python User Input](https://www.w3schools.com/python/python_user_input.asp)
+- [Real Python: `if __name__ == "__main__"`](https://realpython.com/if-name-main-python/)
+  — longer, and worth it once the short version makes sense
+
+## Submitting
+
+```sh
+git add -A
+git commit -m "your message"
+git push
+```
+
+Open a pull request to your instructor for feedback.
+
+## Good luck!
+
+Splitting code into modules is the first step toward programs too big for one
+file. That is every program you will write after this one. You got this!

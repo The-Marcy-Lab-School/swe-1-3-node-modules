@@ -1,0 +1,50 @@
+{
+  "testScores": {
+    "Madlib Challenge Tests": {
+      "MaChTe1": 0,
+      "MaChTe2": 0,
+      "MaChTe3": 0,
+      "MaChTe4": 0,
+      "MaChTe5": 0,
+      "MaChTe6": 0,
+      "MaChTe7": 0
+    },
+    "Modify Tests": {
+      "MoTe1": 0,
+      "MoTe2": 0,
+      "MoTe3": 0,
+      "MoTe4": 0
+    }
+  },
+  "idToTestNameHash": {
+    "MaChTe1": "Madlib Challenge Tests 1. creates a new file called madlib.py",
+    "MaChTe2": "Madlib Challenge Tests 2. madlib.py defines a madlib function that runs without error",
+    "MaChTe3": "Madlib Challenge Tests 3. main.py imports madlib instead of defining it",
+    "MaChTe4": "Madlib Challenge Tests 4. main.py only runs the story when you run it directly",
+    "MaChTe5": "Madlib Challenge Tests 5. main.py imports the madlib name explicitly, not with a star import",
+    "MaChTe6": "Madlib Challenge Tests 6. main.py no longer hard-codes the story values",
+    "MaChTe7": "Madlib Challenge Tests 7. main.py collects all five values with input()",
+    "MoTe1": "Modify Tests modify.py - prints nothing when another file imports it",
+    "MoTe2": "Modify Tests modify.py - guards the print and still prints when run directly",
+    "MoTe3": "Modify Tests modify.py - defines both only_one and another_function",
+    "MoTe4": "Modify Tests modify.py - both functions return the right string"
+  },
+  "testNameToIdHash": {
+    "Madlib Challenge Tests 1. creates a new file called madlib.py": "MaChTe1",
+    "Madlib Challenge Tests 2. madlib.py defines a madlib function that runs without error": "MaChTe2",
+    "Madlib Challenge Tests 3. main.py imports madlib instead of defining it": "MaChTe3",
+    "Madlib Challenge Tests 4. main.py only runs the story when you run it directly": "MaChTe4",
+    "Madlib Challenge Tests 5. main.py imports the madlib name explicitly, not with a star import": "MaChTe5",
+    "Madlib Challenge Tests 6. main.py no longer hard-codes the story values": "MaChTe6",
+    "Madlib Challenge Tests 7. main.py collects all five values with input()": "MaChTe7",
+    "Modify Tests modify.py - prints nothing when another file imports it": "MoTe1",
+    "Modify Tests modify.py - guards the print and still prints when run directly": "MoTe2",
+    "Modify Tests modify.py - defines both only_one and another_function": "MoTe3",
+    "Modify Tests modify.py - both functions return the right string": "MoTe4"
+  },
+  "humanReadable": {
+    "Madlib Challenge Tests": "0/7",
+    "Modify Tests": "0/4",
+    "finalTestScore": "FINAL SCORE: 0/11"
+  }
+}
